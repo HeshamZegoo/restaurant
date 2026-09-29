@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5efe4;--card:#fffdf8;--ink:#1c1a18;--mut:#7a7166;--line:#e4dccb;--gold:#b08a45;--ok:#3f7a55;--warn:#c8742a;--tile:#efe6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161412;--card:#201d1a;--ink:#f1eadc;--mut:#9a9184;--line:#332f2a;--tile:#2a2622}}
+:root[data-theme=dark]{--bg:#161412;--card:#201d1a;--ink:#f1eadc;--mut:#9a9184;--line:#332f2a;--tile:#2a2622}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Manrope,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;margin:0;letter-spacing:.01em}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;transition:transform .12s,background .2s,opacity .2s}button:active{transform:scale(.97)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+.btn{background:var(--ink);color:var(--bg);padding:13px 22px;border-radius:6px;font-weight:600;width:100%}
+.btn.gold{background:var(--gold);color:#1c1a18}.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}.btn.sm{padding:9px 14px;width:auto;font-size:13px}
+.btn:disabled{opacity:.4}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
+.brand{font:600 22px 'Cormorant Garamond',serif}.pill{border:1px solid var(--gold);color:var(--gold);padding:4px 12px;border-radius:99px;font-weight:600;font-size:13px}
+.hero{padding:56px 0 24px}.hero h1{font-size:clamp(44px,9vw,72px);line-height:1}.hero p{color:var(--mut);margin:10px 0 0}
+.tables{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;padding-bottom:40px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 16px;text-align:left;display:flex;flex-direction:column;gap:10px}
+.tcard:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 28px -16px rgba(0,0,0,.4)}
+.tcard b{font:600 26px 'Cormorant Garamond',serif}.tcard span{color:var(--gold);font-size:13px;font-weight:600}
+.cats{display:flex;gap:6px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+.cat{padding:8px 16px;border-radius:99px;border:1px solid var(--line);white-space:nowrap;font-weight:500;color:var(--mut)}.cat.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.search{width:100%;padding:12px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;font:inherit;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding:18px 0 120px}
+.food{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s}
+.food:hover{box-shadow:0 14px 30px -18px rgba(0,0,0,.5)}
+.pic{height:150px;background:var(--tile);display:grid;place-items:center;font-size:72px}
+.fb{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}.fb h3{font-size:22px}.fb p{margin:0;color:var(--mut);font-size:13px;flex:1}.price{font-weight:700;color:var(--gold)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:6px}.qty button{width:40px;height:40px;font-size:18px}.qty span{min-width:26px;text-align:center;font-weight:600}
+.fab{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;z-index:6;display:flex;justify-content:space-between;padding:16px 20px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55)}
+.veil{position:fixed;inset:0;background:rgba(10,8,6,.55);z-index:8;opacity:0;pointer-events:none;transition:opacity .25s}.veil.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88vh;overflow:auto;background:var(--bg);z-index:9;border-radius:14px 14px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-width:560px;margin:0 auto}.sheet.on{transform:none}
+.ci{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.ci .t{width:48px;height:48px;background:var(--tile);border-radius:6px;display:grid;place-items:center;font-size:26px}.ci .m{flex:1}.ci small{color:var(--mut)}
+.rm{color:var(--warn);font-size:12px}
+textarea{width:100%;min-height:70px;padding:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;font:inherit;margin:14px 0;resize:vertical}
+.empty{text-align:center;padding:56px 20px;color:var(--mut)}.empty .i{font-size:40px;opacity:.7}.empty h3{color:var(--ink);font-size:24px;margin:8px 0 4px}
+.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-140%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:8px;z-index:20;transition:transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center;font-weight:600}.toast.on{transform:translate(-50%,0)}
+.off{background:var(--warn);color:#fff;text-align:center;padding:8px;font-weight:600;font-size:13px}
+.center{max-width:480px;margin:0 auto;padding:40px 18px;text-align:center}
+.check{width:72px;height:72px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:36px;margin:0 auto 18px;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}@keyframes pop{from{transform:scale(.3);opacity:0}}
+.big{font:600 44px 'Cormorant Garamond',serif;color:var(--gold)}
+.prog{display:flex;margin:28px 0 8px}.step{flex:1;text-align:center;font-size:11px;font-weight:600;color:var(--mut);position:relative}.step:before{content:'';display:block;width:14px;height:14px;border-radius:50%;background:var(--line);margin:0 auto 8px;position:relative;z-index:1;transition:background .3s}
+.step:after{content:'';position:absolute;top:6px;left:-50%;width:100%;height:2px;background:var(--line);transition:background .3s}.step:first-child:after{display:none}
+.step.d{color:var(--ink)}.step.d:before,.step.d:after{background:var(--gold)}
+.modal{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:18px;background:rgba(10,8,6,.6)}.mbox{background:var(--bg);border-radius:12px;padding:26px;max-width:400px;width:100%;animation:pop .3s}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:18px;padding-top:12px;margin-top:8px;border-top:1px solid var(--line)}
+.dash{padding:20px 0 60px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px}.stat b{display:block;font:600 34px 'Cormorant Garamond',serif}.stat small{color:var(--mut)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tab{padding:9px 16px;border:1px solid var(--line);border-radius:6px;font-weight:600;font-size:13px}.tab.on{background:var(--ink);color:var(--bg)}.tab i{font-style:normal;color:var(--gold);margin-left:6px}.tab.on i{color:var(--gold)}
+.orders{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.oc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.oc.COOKING{border-left-color:var(--warn)}.oc.READY{border-left-color:var(--ok)}.oc.COMPLETED{border-left-color:var(--line);opacity:.7}
+.oc h3{font-size:26px}.note{background:var(--tile);padding:8px 10px;border-radius:6px;font-size:13px}
+.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--tile)}.badge.COOKING{color:var(--warn)}.badge.READY,.badge.COMPLETED{color:var(--ok)}.badge.NEW{color:var(--gold)}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.tb{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--card)}.tb b{font:600 22px 'Cormorant Garamond',serif;display:block}.tb.Active{border-color:var(--gold)}.tb.Cooking{border-color:var(--warn)}.tb.Ready{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+.tb small{color:var(--mut)}.tb.Cooking small{color:var(--warn)}.tb.Ready small{color:var(--ok)}.tb.Active small{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600}.scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
+.pin{max-width:320px;margin:90px auto;padding:0 18px;text-align:center}.pin input{width:100%;text-align:center;letter-spacing:.5em;font-size:24px;padding:14px;margin:18px 0 12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px}
+h2.s{font-size:26px;margin:28px 0 12px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="off" class="off" hidden>Connection lost. Orders can't be sent until you're back online.</div>
+<div id="app"></div><div id="toast" class="toast"></div>
+<script>
+/* ---------- Service layer (swap these functions for Supabase later) ---------- */
+const CATS=['Burgers','Pizza','Chicken','Pasta','Appetizers','Sandwiches','Salads','Desserts','Hot Drinks','Cold Drinks','Milkshakes'];
+const P=[
+[1,'Classic Beef Burger','Grilled beef patty, cheddar, pickles, house sauce',165,'Burgers','🍔'],
+[2,'Chicken Burger','Grilled chicken breast, lettuce, tomato, special sauce',120,'Burgers','🍔'],
+[3,'Margherita','San Marzano tomato, fior di latte, basil',140,'Pizza','🍕'],
+[4,'Pepperoni Pizza','Beef pepperoni, mozzarella, chili oil',175,'Pizza','🍕'],
+[5,'Grilled Half Chicken','Herb-marinated, charred, served with rice',185,'Chicken','🍗'],
+[6,'Crispy Chicken Strips','Buttermilk fried, honey mustard dip',130,'Chicken','🍗'],
+[7,'Fettuccine Alfredo','Cream, parmesan, roasted garlic',150,'Pasta','🍝'],
+[8,'Penne Arrabbiata','Spicy tomato, garlic, parsley',115,'Pasta','🍝'],
+[9,'French Fries','Sea salt, skin-on, crisp',45,'Appetizers','🍟'],
+[10,'Mozzarella Sticks','Golden crumb, marinara',75,'Appetizers','🧀'],
+[11,'Chicken Shawarma','Garlic sauce, pickles, saj bread',95,'Sandwiches','🌯'],
+[12,'Club Sandwich','Roast turkey, egg, cheese, toasted brioche',110,'Sandwiches','🥪'],
+[13,'Caesar Salad','Romaine, parmesan, croutons, grilled chicken',105,'Salads','🥗'],
+[14,'Greek Salad','Feta, olives, cucumber, oregano',90,'Salads','🥗'],
+[15,'Molten Chocolate Cake','Warm center, vanilla ice cream',85,'Desserts','🍫'],
+[16,'Om Ali','Baked pastry, milk, nuts, raisins',65,'Desserts','🍮'],
+[17,'Turkish Coffee','Medium sugar, cardamom',35,'Hot Drinks','☕'],
+[18,'Cappuccino','Double shot, steamed milk',55,'Hot Drinks','☕'],
+[19,'Cola','Chilled, 330 ml',40,'Cold Drinks','🥤'],
+[20,'Fresh Orange Juice','Squeezed to order',60,'Cold Drinks','🍊'],
+[21,'Vanilla Milkshake','Madagascar vanilla, whipped cream',80,'Milkshakes','🥛'],
+[22,'Oreo Milkshake','Crushed cookies, chocolate drizzle',90,'Milkshakes','🥛']
+].map(a=>({id:a[0],name:a[1],desc:a[2],price:a[3],cat:a[4],img:a[5]}));
+const PIN={kitchen:'1111',admin:'9999'};
+const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const bc=('BroadcastChannel' in window)?new BroadcastChannel('rk'):null;
+const sync=()=>{bc&&bc.postMessage(1)};
+const api={
+ orders:()=>ls('rk_orders',[]),
+ off:()=>ls('rk_off',[]),
+ products:()=>P.map(p=>({...p,available:!api.off().includes(p.id)})),
+ placeOrder(tableId,items,notes){ // backend-style validation: prices come from the catalogue, never the client
+  tableId=Number(tableId);if(!Number.isInteger(tableId)||tableId<1||tableId>7)throw Error('Invalid table');
+  if(!items.length)throw Error('Cart is empty');
+  const lines=items.map(i=>{const p=api.products().find(x=>x.id===i.id);const q=Number(i.qty);
+   if(!p||!p.available)throw Error('Item unavailable');if(!Number.isInteger(q)||q<1||q>20)throw Error('Invalid quantity');
+   return{id:p.id,name:p.name,qty:q,price:p.price}});
+  const subtotal=lines.reduce((s,l)=>s+l.qty*l.price,0);const seq=ls('rk_seq',103)+1;localStorage.setItem('rk_seq',seq);
+  const o={orderId:seq,tableId,items:lines,notes:String(notes||'').slice(0,300),subtotal,total:subtotal,status:'NEW',createdAt:Date.now()};
+  localStorage.setItem('rk_orders',JSON.stringify([...api.orders(),o]));sync();return o},
+ setStatus(id,status){localStorage.setItem('rk_orders',JSON.stringify(api.orders().map(o=>o.orderId===id?{...o,status}:o)));sync()},
+ toggle(id){const s=api.off();localStorage.setItem('rk_off',JSON.stringify(s.includes(id)?s.filter(x=>x!==id):[...s,id]));sync()}
+};
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const egp=n=>n.toLocaleString('en-US')+' EGP',tm=t=>new Date(t).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+const TBL='<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="17" cy="13" rx="12" ry="5"/><path d="M8 16v13M26 16v13M17 18v11"/></svg>';
+let T=null,Cat='Burgers',Q='',cart={},notes='',sheet=false,confirmOpen=false,view='menu',HQ='',HF='ALL',KF='ALL',AF='ALL',seen=0,first=true;
+const authed=r=>sessionStorage.getItem('rk_auth_'+r)==='1';
+function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),3200)}
+function beep(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=880;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.15,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.5);o.start();o.stop(a.currentTime+.5)}catch(e){}}
+const empty=(i,h,p)=>`<div class="empty"><div class="i">${i}</div><h3>${h}</h3><p>${p}</p></div>`;
+const cartLines=()=>Object.entries(cart).map(([id,q])=>({p:api.products().find(x=>x.id==id),q})).filter(l=>l.p&&l.p.available);
+const cartTotal=()=>cartLines().reduce((s,l)=>s+l.p.price*l.q,0),cartCount=()=>cartLines().reduce((s,l)=>s+l.q,0);
+const myId=()=>ls('rk_my_'+T,null),myOrder=()=>api.orders().find(o=>o.orderId===myId());
+/* ---------- customer ---------- */
+function select(){return`<div class="wrap"><div class="hero"><h1>Welcome</h1><p>Select your table to start your order.</p></div>
+<div class="tables">${[1,2,3,4,5,6,7].map(n=>`<button class="tcard" data-a="pick" data-v="${n}">${TBL}<b>Table ${n}</b><span>Select Table</span></button>`).join('')}</div></div>`}
+function qtyCtl(id,q){return`<div class="qty"><button data-a="dec" data-v="${id}" aria-label="Less">−</button><span>${q}</span><button data-a="inc" data-v="${id}" aria-label="More">+</button></div>`}
+function grid(){const q=Q.trim().toLowerCase();const l=api.products().filter(p=>q?(p.name+p.desc+p.cat).toLowerCase().includes(q):p.cat===Cat);
+ if(!l.length)return empty('🔍','No results',`Nothing matches “${esc(Q)}”. Try another dish.`);
+ return l.map(p=>{const c=cart[p.id]||0;return`<div class="food"><div class="pic">${p.img}</div><div class="fb"><div class="row"><h3>${p.name}</h3></div><p>${p.desc}</p><div class="row"><span class="price">${egp(p.price)}</span>${p.available?(c?qtyCtl(p.id,c):''):'<small>Sold out</small>'}</div>${p.available?(c?'':`<button class="btn sm" data-a="add" data-v="${p.id}">Add to cart</button>`):''}</div></div>`}).join('')}
+function menu(){const mo=myOrder();
+ if(view==='track'&&mo)return track(mo);
+ const L=cartLines();
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Maison Table</span><span class="row" style="gap:8px">${mo&&mo.status!=='COMPLETED'?`<button class="pill" data-a="track">Order #${mo.orderId} · ${mo.status}</button>`:''}<span class="pill">Table ${T}</span></span></div>
+ <input class="search" id="q" placeholder="Search menu…" value="${esc(Q)}"><div class="cats">${CATS.map(c=>`<button class="cat ${c===Cat&&!Q?'on':''}" data-a="cat" data-v="${c}">${c}</button>`).join('')}</div></div></div>
+ <div class="wrap"><div class="grid" id="grid">${grid()}</div></div>
+ ${L.length?`<button class="btn gold fab" data-a="open"><span>View cart · ${cartCount()}</span><span>${egp(cartTotal())}</span></button>`:''}
+ <div class="veil ${sheet?'on':''}" data-a="close"></div>
+ <div class="sheet ${sheet?'on':''}"><div class="row"><h2>Your order · Table ${T}</h2><button data-a="close" aria-label="Close" style="font-size:22px">✕</button></div>
+ ${L.length?L.map(({p,q})=>`<div class="ci"><div class="t">${p.img}</div><div class="m"><b>${p.name}</b><br><small>${egp(p.price)} each · <b>${egp(p.price*q)}</b></small></div><div>${qtyCtl(p.id,q)}<div style="text-align:right"><button class="rm" data-a="rm" data-v="${p.id}">Remove</button></div></div></div>`).join('')+
+ `<div class="tot"><span>Subtotal</span><span>${egp(cartTotal())}</span></div><textarea id="notes" placeholder="Any special requests? No onions, extra sauce…">${esc(notes)}</textarea><button class="btn" data-a="review">Send order</button>`
+ :empty('🛒','Your cart is empty','Pick something from the menu to get started.')}</div>
+ ${confirmOpen?`<div class="modal"><div class="mbox"><h2>Table ${T}</h2><p style="color:var(--mut);margin:4px 0 14px">Your order:</p>${L.map(({p,q})=>`<div class="row"><span>${q} × ${p.name}</span><span>${egp(p.price*q)}</span></div>`).join('')}${notes?`<div class="note" style="margin-top:10px">${esc(notes)}</div>`:''}<div class="tot"><span>Total</span><span>${egp(cartTotal())}</span></div><div style="display:grid;gap:8px;margin-top:18px"><button class="btn gold" data-a="confirm">Confirm order</button><button class="btn ghost" data-a="back">Go back</button></div></div></div>`:''}`}
+function track(o){const S=['NEW','COOKING','READY','COMPLETED'],i=S.indexOf(o.status);
+ const H={NEW:['Order Sent Successfully','Your order has been sent to the kitchen.'],COOKING:['Being prepared','The kitchen has started your order.'],READY:['Your food is ready','It will be at your table shortly.'],COMPLETED:['Enjoy your meal','Your order is complete.']}[o.status];
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Maison Table</span><span class="pill">Table ${T}</span></div></div></div><div class="center"><div class="check">✓</div><h1 style="font-size:36px">${H[0]}</h1><p style="color:var(--mut)">${H[1]}</p>
+ <div class="big">#${o.orderId}</div><div class="prog">${S.map((s,k)=>`<div class="step ${k<=i?'d':''}">${s}</div>`).join('')}</div>
+ <div style="text-align:left;margin:22px 0">${o.items.map(l=>`<div class="row"><span>${l.qty} × ${l.name}</span><span>${egp(l.qty*l.price)}</span></div>`).join('')}<div class="tot"><span>Total</span><span>${egp(o.total)}</span></div></div>
+ <button class="btn ${o.status==='COMPLETED'?'gold':'ghost'}" data-a="more">${o.status==='COMPLETED'?'Order again':'Add more items'}</button></div>`}
+/* ---------- staff ---------- */
+function gate(r){return`<div class="pin"><h1 style="font-size:42px">${r==='kitchen'?'Kitchen':'Admin'}</h1><p style="color:var(--mut)">Staff only. Enter your PIN.</p><input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off"><button class="btn" data-a="pin" data-v="${r}">Unlock</button><p id="perr" style="color:var(--warn);min-height:20px"></p></div>`}
+const ST=['NEW','COOKING','READY','COMPLETED'],NEXT={NEW:['Accept order','COOKING'],COOKING:['Mark as ready','READY'],READY:['Complete order','COMPLETED']},ICON={NEW:'',COOKING:'🟡 ',READY:'🟢 ',COMPLETED:'✓ '};
+function kcard(o){const n=NEXT[o.status];return`<div class="oc ${o.status}"><div class="row"><h3>Table ${o.tableId}</h3><span class="badge ${o.status}">${ICON[o.status]}${o.status}</span></div><small style="color:var(--mut)">Order #${o.orderId} · ${tm(o.createdAt)}</small>${o.items.map(l=>`<div><b>${l.qty} ×</b> ${l.name}</div>`).join('')}${o.notes?`<div class="note"><b>Special instructions:</b> “${esc(o.notes)}”</div>`:''}${n?`<button class="btn ${o.status==='NEW'?'gold':''}" data-a="st" data-v="${o.orderId}" data-s="${n[1]}">${n[0]}</button>`:''}</div>`}
+function kitchen(){const all=api.orders().slice().reverse(),cnt=s=>all.filter(o=>o.status===s).length,l=KF==='ALL'?all.filter(o=>o.status!=='COMPLETED'):all.filter(o=>o.status===KF);
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Kitchen</span><button class="btn ghost sm" data-a="out" data-v="kitchen">Lock</button></div></div></div><div class="wrap dash"><div class="tabs">${['ALL',...ST].map(s=>`<button class="tab ${KF===s?'on':''}" data-a="kf" data-v="${s}">${s}${s==='ALL'?'':`<i>${cnt(s)}</i>`}</button>`).join('')}</div>
+ ${l.length?`<div class="orders">${l.map(kcard).join('')}</div>`:(all.length?empty('✓','Nothing here','No orders with this status.'):empty('👨‍🍳','Kitchen is quiet','New orders appear here the moment a table sends them.'))}</div>`}
+function stat(o){return o.status==='NEW'?'Active':o.status==='COOKING'?'Cooking':o.status==='READY'?'Ready':'Available'}
+function hist(){const q=HQ.trim().toLowerCase();const l=api.orders().slice().reverse().filter(o=>(HF==='ALL'||o.status===HF)&&(!q||('#'+o.orderId+' table '+o.tableId+' '+o.items.map(i=>i.name).join(' ')).toLowerCase().includes(q)));
+ return l.length?`<table><tr><th>Order</th><th>Table</th><th>Items</th><th>Total</th><th>Status</th><th>Time</th></tr>${l.map(o=>`<tr><td>#${o.orderId}</td><td>${o.tableId}</td><td>${o.items.map(i=>i.qty+'× '+i.name).join(', ')}</td><td>${egp(o.total)}</td><td><span class="badge ${o.status}">${o.status}</span></td><td>${tm(o.createdAt)}</td></tr>`).join('')}</table>`:empty('🧾','No orders yet','Order history will show up here.')}
+function admin(){const os=api.orders(),done=os.filter(o=>o.status==='COMPLETED'),rev=os.reduce((s,o)=>s+o.total,0);
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Admin</span><button class="btn ghost sm" data-a="out" data-v="admin">Lock</button></div></div></div><div class="wrap dash">
+ <div class="stats"><div class="stat"><small>Today's orders</small><b>${os.length}</b></div><div class="stat"><small>Active orders</small><b>${os.length-done.length}</b></div><div class="stat"><small>Completed orders</small><b>${done.length}</b></div><div class="stat"><small>Today's revenue</small><b>${egp(rev)}</b></div></div>
+ <h2 class="s">Tables</h2><div class="tg">${[1,2,3,4,5,6,7].map(n=>{const a=os.filter(o=>o.tableId===n&&o.status!=='COMPLETED').pop(),s=a?stat(a):'Available';return`<div class="tb ${s}"><b>Table ${n}</b><small>${s}</small></div>`}).join('')}</div>
+ <h2 class="s">Menu availability</h2><div class="tabs">${api.products().map(p=>`<button class="tab ${p.available?'on':''}" data-a="tog" data-v="${p.id}">${p.img} ${p.name}</button>`).join('')}</div>
+ <h2 class="s">Order history</h2><input class="search" id="hq" placeholder="Search by order, table or item…" value="${esc(HQ)}"><div class="tabs">${['ALL',...ST].map(s=>`<button class="tab ${HF===s?'on':''}" data-a="hf" data-v="${s}">${s}</button>`).join('')}</div><div class="scroll" id="hist">${hist()}</div></div>`}
+/* ---------- router / render ---------- */
+function render(){const h=location.hash.replace('#','')||'/',m=h.match(/^\/table\/(\d+)/);let out;
+ if(h.startsWith('/kitchen')){out=authed('kitchen')?kitchen():gate('kitchen');
+  const os=api.orders(),mx=Math.max(0,...os.map(o=>o.orderId));
+  if(authed('kitchen')&&!first&&mx>seen){const o=os.find(x=>x.orderId===mx);toast(`🔔 NEW ORDER<br>Table ${o.tableId} · Order #${o.orderId}`);beep()}seen=mx;first=false}
+ else if(h.startsWith('/admin'))out=authed('admin')?admin():gate('admin');
+ else if(m){const t=+m[1];if(t<1||t>7)out=`<div class="center">${empty('⚠️','Table not found','This table number doesn\'t exist. Tables run from 1 to 7.')}<a href="#/"><button class="btn">Choose a table</button></a></div>`;else{T=t;out=menu()}}
+ else out=select();
+ $('#app').innerHTML=out;if(m&&T&&!ls('rk_my_'+T,null))view='menu'}
+const busy=()=>/INPUT|TEXTAREA/.test(document.activeElement.tagName);
+const onSync=()=>{if(!busy())render()};
+addEventListener('storage',onSync);bc&&(bc.onmessage=onSync);addEventListener('hashchange',()=>{sheet=confirmOpen=false;view=myOrder&&location.hash.includes('table')?view:'menu';render()});
+addEventListener('online',()=>$('#off').hidden=true);addEventListener('offline',()=>$('#off').hidden=false);
+document.addEventListener('input',e=>{const t=e.target;
+ if(t.id==='q'){Q=t.value;$('#grid').innerHTML=grid()}else if(t.id==='notes')notes=t.value;else if(t.id==='hq'){HQ=t.value;$('#hist').innerHTML=hist()}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,v=b.dataset.v,n=+v;
+ switch(a){
+ case'pick':location.hash='/table/'+v;return;
+ case'cat':Cat=v;Q='';break;
+ case'add':cart[n]=1;break;case'inc':cart[n]=Math.min(20,(cart[n]||0)+1);break;
+ case'dec':cart[n]>1?cart[n]--:delete cart[n];break;case'rm':delete cart[n];break;
+ case'open':sheet=true;break;case'close':sheet=false;break;
+ case'review':sheet=false;confirmOpen=true;break;case'back':confirmOpen=false;sheet=true;break;
+ case'confirm':if(!navigator.onLine){toast('Connection lost. Check your network and try again.');return}
+  try{const o=api.placeOrder(T,cartLines().map(l=>({id:l.p.id,qty:l.q})),notes);localStorage.setItem('rk_my_'+T,o.orderId);cart={};notes='';confirmOpen=false;view='track'}catch(er){confirmOpen=false;toast('Order failed: '+esc(er.message)+'. Please try again.')}break;
+ case'track':view='track';break;
+ case'more':{const o=myOrder();if(o&&o.status==='COMPLETED')localStorage.removeItem('rk_my_'+T);view='menu';break}
+ case'st':api.setStatus(n,b.dataset.s);break;case'kf':KF=v;break;case'hf':HF=v;break;case'tog':api.toggle(n);break;
+ case'pin':if($('#pin').value===PIN[v]){sessionStorage.setItem('rk_auth_'+v,'1');first=true}else{$('#perr').textContent='Wrong PIN. Try again.';return}break;
+ case'out':sessionStorage.removeItem('rk_auth_'+v);break;}
+ render()});
+render();
+</script></body></html>
