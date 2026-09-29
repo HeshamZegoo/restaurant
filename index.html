@@ -1,205 +1,302 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#050f18">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Maison Table</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Pizza BoB</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5efe4;--card:#fffdf8;--ink:#1c1a18;--mut:#7a7166;--line:#e4dccb;--gold:#b08a45;--ok:#3f7a55;--warn:#c8742a;--tile:#efe6d3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161412;--card:#201d1a;--ink:#f1eadc;--mut:#9a9184;--line:#332f2a;--tile:#2a2622}}
-:root[data-theme=dark]{--bg:#161412;--card:#201d1a;--ink:#f1eadc;--mut:#9a9184;--line:#332f2a;--tile:#2a2622}
+:root{--bg:#050f18;--card:#0b1e2c;--ink:#fdf3e3;--mut:#c3d6e0;--line:#2a5670;--gold:#ff9d78;--ok:#5fe0b0;--warn:#ffb547;--tile:#0e2a3b;--on:#1a0a04;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Manrope,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Manrope,system-ui,sans-serif;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;margin:0;letter-spacing:.01em}
-button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;transition:transform .12s,background .2s,opacity .2s}button:active{transform:scale(.97)}
-button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
-.btn{background:var(--ink);color:var(--bg);padding:13px 22px;border-radius:6px;font-weight:600;width:100%}
-.btn.gold{background:var(--gold);color:#1c1a18}.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}.btn.sm{padding:9px 14px;width:auto;font-size:13px}
-.btn:disabled{opacity:.4}
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
-.brand{font:600 22px 'Cormorant Garamond',serif}.pill{border:1px solid var(--gold);color:var(--gold);padding:4px 12px;border-radius:99px;font-weight:600;font-size:13px}
-.hero{padding:56px 0 24px}.hero h1{font-size:clamp(44px,9vw,72px);line-height:1}.hero p{color:var(--mut);margin:10px 0 0}
-.tables{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;padding-bottom:40px}
-.tcard{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 16px;text-align:left;display:flex;flex-direction:column;gap:10px}
-.tcard:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 28px -16px rgba(0,0,0,.4)}
-.tcard b{font:600 26px 'Cormorant Garamond',serif}.tcard span{color:var(--gold);font-size:13px;font-weight:600}
-.cats{display:flex;gap:6px;overflow-x:auto;padding:0 0 12px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
-.cat{padding:8px 16px;border-radius:99px;border:1px solid var(--line);white-space:nowrap;font-weight:500;color:var(--mut)}.cat.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.search{width:100%;padding:12px 16px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;font:inherit;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding:18px 0 120px}
-.food{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s}
-.food:hover{box-shadow:0 14px 30px -18px rgba(0,0,0,.5)}
-.pic{height:150px;background:var(--tile);display:grid;place-items:center;font-size:72px}
-.fb{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}.fb h3{font-size:22px}.fb p{margin:0;color:var(--mut);font-size:13px;flex:1}.price{font-weight:700;color:var(--gold)}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;transition:transform .15s,background .2s,opacity .2s,border-color .2s}button:active{transform:scale(.97)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eb{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.btn{background:var(--ink);color:var(--bg);padding:15px 22px;border-radius:2px;font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;width:100%;min-height:48px}
+.btn.gold{background:var(--gold);color:var(--on)}.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}.btn.sm{padding:10px 16px;width:auto;min-height:40px;font-size:11.5px}.btn:disabled{opacity:.4}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(5,15,24,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:10px}
+.brand{font:600 22px 'Cormorant Garamond',serif;letter-spacing:.04em}
+.nav{display:flex;gap:4px}.nav button{padding:10px 10px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid transparent;min-height:44px}.nav button.on{color:var(--gold);border-color:var(--gold)}
+.pill{border:1px solid var(--gold);color:var(--gold);padding:5px 12px;border-radius:99px;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.hero{padding:64px 0 30px;text-align:center}.hero h1{font-size:clamp(42px,10vw,76px);line-height:1;margin:12px 0}.hero p{color:var(--mut);margin:0}
+.rule{width:44px;height:1px;background:var(--gold);margin:18px auto}
+.tables{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding-bottom:56px;max-width:760px;margin:0 auto}
+.tcard{border:1px solid var(--line);background:var(--card);border-radius:2px;padding:18px;min-height:150px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.tcard b{font:500 64px/1 'Cormorant Garamond',serif;color:var(--ink)}.tcard span{font-size:11px;letter-spacing:.26em;font-weight:600;color:var(--gold)}
+.tcard:hover,.tcard:focus-visible{border-color:var(--gold);transform:translateY(-3px)}
+.tcard.sel{background:var(--gold);border-color:var(--gold);transform:scale(1.04);transition:all .3s}.tcard.sel b,.tcard.sel span{color:var(--on)}.tcard.dim{opacity:.25;transition:opacity .3s}
+.cats{display:flex;gap:2px;overflow-x:auto;padding:0 0 4px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+.cat{padding:10px 14px;white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid transparent;min-height:44px}.cat.on{color:var(--gold);border-color:var(--gold)}
+.search{width:100%;padding:13px 2px;border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);font:inherit;margin:8px 0 4px;border-radius:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:36px 24px;padding:26px 0 130px}
+.food{display:flex;flex-direction:column;gap:10px}.food.rv{animation:up .6s both;animation-delay:calc(var(--i)*45ms)}.food.so{opacity:.5}
+.pic{aspect-ratio:5/4;background:radial-gradient(circle at 50% 42%,rgba(255,157,120,.18),transparent 68%),var(--tile);display:grid;place-items:center;overflow:hidden;border:1px solid var(--line)}
+.pic img{width:100%;height:100%;object-fit:cover}.em{font-size:clamp(64px,20vw,92px);transition:transform .6s}.food:hover .em{transform:scale(1.07)}
+.food h3{font-size:27px;line-height:1.1}.food p{margin:0;color:var(--mut);font-size:13.5px;flex:1}.price{font-weight:600;letter-spacing:.06em}
 .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:6px}.qty button{width:40px;height:40px;font-size:18px}.qty span{min-width:26px;text-align:center;font-weight:600}
-.fab{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;z-index:6;display:flex;justify-content:space-between;padding:16px 20px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55)}
-.veil{position:fixed;inset:0;background:rgba(10,8,6,.55);z-index:8;opacity:0;pointer-events:none;transition:opacity .25s}.veil.on{opacity:1;pointer-events:auto}
-.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88vh;overflow:auto;background:var(--bg);z-index:9;border-radius:14px 14px 0 0;padding:22px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-width:560px;margin:0 auto}.sheet.on{transform:none}
-.ci{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.ci .t{width:48px;height:48px;background:var(--tile);border-radius:6px;display:grid;place-items:center;font-size:26px}.ci .m{flex:1}.ci small{color:var(--mut)}
-.rm{color:var(--warn);font-size:12px}
-textarea{width:100%;min-height:70px;padding:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;font:inherit;margin:14px 0;resize:vertical}
-.empty{text-align:center;padding:56px 20px;color:var(--mut)}.empty .i{font-size:40px;opacity:.7}.empty h3{color:var(--ink);font-size:24px;margin:8px 0 4px}
-.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-140%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:8px;z-index:20;transition:transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center;font-weight:600}.toast.on{transform:translate(-50%,0)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line)}.qty button{width:44px;height:44px;font-size:18px}.qty span{min-width:28px;text-align:center;font-weight:600}
+.add{border:1px solid var(--gold);color:var(--gold);padding:0 16px;height:44px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.add:hover{background:var(--gold);color:var(--on)}
+.fab{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;z-index:6;display:flex;justify-content:space-between;padding:17px 20px;box-shadow:0 16px 40px -8px rgba(0,0,0,.6);width:auto}
+.bump{display:inline-block;animation:bump .4s}@keyframes bump{40%{transform:scale(1.5)}}
+.fly{position:fixed;z-index:30;width:56px;height:56px;font-size:46px;display:grid;place-items:center;pointer-events:none}
+.veil{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(6,5,4,.66);z-index:8;opacity:0;pointer-events:none;transition:opacity .3s}.veil.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:90vh;overflow:auto;background:var(--bg);border-top:1px solid var(--gold);z-index:9;padding:14px 20px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1);max-width:560px;margin:0 auto;visibility:hidden}.sheet.on{transform:none;visibility:visible}
+.grab{width:40px;height:3px;background:var(--line);margin:0 auto 14px}
+.ci{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.ci .t{width:56px;height:56px;background:var(--tile);display:grid;place-items:center;font-size:28px;overflow:hidden;flex:none}.ci .t img{width:100%;height:100%;object-fit:cover}.ci .m{flex:1;min-width:0}.ci small{color:var(--mut)}
+.rm{color:var(--warn);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 0 0;min-height:36px}
+textarea{width:100%;min-height:76px;padding:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:2px;font:inherit;margin:16px 0;resize:vertical}
+.empty{text-align:center;padding:56px 20px;color:var(--mut);grid-column:1/-1}.empty .i{font-size:38px;opacity:.7}.empty h3{color:var(--ink);font-size:26px;margin:8px 0 4px}
+.sk{aspect-ratio:5/4;background:linear-gradient(100deg,var(--tile) 30%,var(--line) 50%,var(--tile) 70%) 0 0/300% 100%;animation:sh 1.3s infinite}.skl{height:14px;margin-top:10px;background:var(--tile);width:60%}
+@keyframes sh{to{background-position:-300% 0}}
+.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-160%);background:var(--gold);color:var(--on);padding:13px 22px;z-index:40;transition:transform .4s cubic-bezier(.2,.8,.2,1);text-align:center;font-weight:700;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;max-width:90vw;box-shadow:0 14px 34px rgba(0,0,0,.45)}.toast.on{transform:translate(-50%,0)}
 .off{background:var(--warn);color:#fff;text-align:center;padding:8px;font-weight:600;font-size:13px}
-.center{max-width:480px;margin:0 auto;padding:40px 18px;text-align:center}
-.check{width:72px;height:72px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:36px;margin:0 auto 18px;animation:pop .45s cubic-bezier(.2,1.4,.4,1)}@keyframes pop{from{transform:scale(.3);opacity:0}}
-.big{font:600 44px 'Cormorant Garamond',serif;color:var(--gold)}
-.prog{display:flex;margin:28px 0 8px}.step{flex:1;text-align:center;font-size:11px;font-weight:600;color:var(--mut);position:relative}.step:before{content:'';display:block;width:14px;height:14px;border-radius:50%;background:var(--line);margin:0 auto 8px;position:relative;z-index:1;transition:background .3s}
-.step:after{content:'';position:absolute;top:6px;left:-50%;width:100%;height:2px;background:var(--line);transition:background .3s}.step:first-child:after{display:none}
-.step.d{color:var(--ink)}.step.d:before,.step.d:after{background:var(--gold)}
-.modal{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:18px;background:rgba(10,8,6,.6)}.mbox{background:var(--bg);border-radius:12px;padding:26px;max-width:400px;width:100%;animation:pop .3s}
-.tot{display:flex;justify-content:space-between;font-weight:700;font-size:18px;padding-top:12px;margin-top:8px;border-top:1px solid var(--line)}
-.dash{padding:20px 0 60px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px}.stat b{display:block;font:600 34px 'Cormorant Garamond',serif}.stat small{color:var(--mut)}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tab{padding:9px 16px;border:1px solid var(--line);border-radius:6px;font-weight:600;font-size:13px}.tab.on{background:var(--ink);color:var(--bg)}.tab i{font-style:normal;color:var(--gold);margin-left:6px}.tab.on i{color:var(--gold)}
+.center{max-width:480px;margin:0 auto;padding:44px 20px 60px;text-align:center}
+.big{font:500 clamp(48px,14vw,68px)/1 'Cormorant Garamond',serif;color:var(--gold);margin:16px 0 4px}
+.tl{margin:34px 0 10px;position:relative;display:flex;justify-content:space-between}.tl:before,.tl i{content:'';position:absolute;top:6px;left:12.5%;height:1px;background:var(--line);width:75%}
+.tl i{background:var(--gold);animation:fill .9s cubic-bezier(.3,.7,.2,1)}@keyframes fill{from{width:var(--f)}}
+.st{flex:1;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);position:relative;z-index:1}.st:before{content:'';display:block;width:13px;height:13px;border-radius:50%;background:var(--bg);border:1px solid var(--line);margin:0 auto 10px;transition:.4s}
+.st.d{color:var(--ink)}.st.d:before{background:var(--gold);border-color:var(--gold)}.st.c:before{animation:pulse 1.8s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,157,120,.55)}100%{box-shadow:0 0 0 12px transparent}}
+.stars{display:flex;justify-content:center;gap:4px;margin:24px 0}.stars button{font-size:44px;line-height:1;width:54px;height:54px;color:var(--line)}.stars button.on{color:var(--gold);animation:pop .45s both;animation-delay:calc(var(--i)*50ms)}
+.ring{width:84px;height:84px;margin:0 auto 20px}.ring circle{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:250;animation:draw 1s ease-out both}.ring path{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:60;animation:draw .7s .6s ease-out both}@keyframes draw{from{stroke-dashoffset:250}to{stroke-dashoffset:0}}
+.modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10;display:grid;place-items:center;padding:18px;background:rgba(6,5,4,.7)}.mbox{background:var(--bg);border:1px solid var(--line);padding:26px;max-width:400px;width:100%;animation:pop .35s}
+.subm{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;background:var(--bg);display:grid;place-items:center;text-align:center;animation:fade .3s}.subm h2{font-size:34px;margin:14px 0}.ln{width:160px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--gold),transparent) 0 0/200% 100%;animation:ln 1.2s infinite linear}@keyframes ln{to{background-position:-200% 0}}
+.tot{display:flex;justify-content:space-between;font-weight:600;font-size:18px;padding-top:14px;margin-top:10px;border-top:1px solid var(--line)}
+.note{background:var(--tile);padding:9px 11px;font-size:13px;border-left:2px solid var(--gold)}
+.enter{animation:up .55s cubic-bezier(.2,.8,.2,1)}@keyframes up{from{opacity:0;transform:translateY(16px)}}@keyframes fade{from{opacity:0}}@keyframes pop{from{transform:scale(.4);opacity:0}}
+.dash{padding:20px 0 60px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);padding:16px}.stat b{display:block;font:500 34px 'Cormorant Garamond',serif}.stat small{color:var(--mut)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}.tab{padding:10px 16px;border:1px solid var(--line);font-weight:600;font-size:12px;letter-spacing:.06em;min-height:44px}.tab.on{background:var(--ink);color:var(--bg)}.tab i{font-style:normal;color:var(--gold);margin-left:6px}
 .orders{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.oc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px}
-.oc.COOKING{border-left-color:var(--warn)}.oc.READY{border-left-color:var(--ok)}.oc.COMPLETED{border-left-color:var(--line);opacity:.7}
-.oc h3{font-size:26px}.note{background:var(--tile);padding:8px 10px;border-radius:6px;font-size:13px}
-.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--tile)}.badge.COOKING{color:var(--warn)}.badge.READY,.badge.COMPLETED{color:var(--ok)}.badge.NEW{color:var(--gold)}
-.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
-.tb{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--card)}.tb b{font:600 22px 'Cormorant Garamond',serif;display:block}.tb.Active{border-color:var(--gold)}.tb.Cooking{border-color:var(--warn)}.tb.Ready{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+.oc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px;display:flex;flex-direction:column;gap:8px}
+.oc.COOKING{border-left-color:var(--warn)}.oc.READY{border-left-color:var(--ok)}.oc.COMPLETED{border-left-color:var(--line);opacity:.7}.oc h3{font-size:28px}
+.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--tile);letter-spacing:.08em}.badge.COOKING{color:var(--warn)}.badge.READY,.badge.COMPLETED{color:var(--ok)}.badge.NEW{color:var(--gold)}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.tb{border:1px solid var(--line);padding:14px;background:var(--card)}.tb b{font:500 26px 'Cormorant Garamond',serif;display:block}.tb.Active{border-color:var(--gold)}.tb.Cooking{border-color:var(--warn)}.tb.Ready{border-color:var(--ok)}
 .tb small{color:var(--mut)}.tb.Cooking small{color:var(--warn)}.tb.Ready small{color:var(--ok)}.tb.Active small{color:var(--gold)}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600}.scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
-.pin{max-width:320px;margin:90px auto;padding:0 18px;text-align:center}.pin input{width:100%;text-align:center;letter-spacing:.5em;font-size:24px;padding:14px;margin:18px 0 12px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px}
-h2.s{font-size:26px;margin:28px 0 12px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mut);font-weight:600}.scroll{overflow-x:auto;background:var(--card);border:1px solid var(--line)}
+.bar2{height:6px;background:var(--gold);margin-top:4px}
+.pin{max-width:320px;margin:90px auto;padding:0 18px;text-align:center}.pin input{width:100%;text-align:center;letter-spacing:.5em;font-size:24px;padding:14px;margin:18px 0 12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+h2.s{font-size:28px;margin:26px 0 8px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+body{font-family:'DM Sans',system-ui,sans-serif;background:#050f18;color:#fff8ec}
+h1,h2,h3,.brand,.big,.tcard b,.stat b{font-family:Fraunces,Georgia,serif;font-weight:800}
+#app{position:relative;z-index:1}
+.bub{position:fixed;bottom:-40px;border-radius:50%;border:1px solid #ffffff2e;background:radial-gradient(circle at 30% 30%,#ffffff40,transparent 62%);pointer-events:none;z-index:0;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) translateX(24px)}}
+.glow{background:linear-gradient(90deg,#fdf3e3,#ff8a5c,#ffb547,#5fe0b0,#fdf3e3);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gl 7s linear infinite;letter-spacing:-.02em}
+@keyframes gl{to{background-position:-300% 0}}
+.hero h1{font-size:clamp(56px,15vw,120px)}.rule{background:linear-gradient(90deg,transparent,var(--gold),transparent);height:2px;width:120px}
+.mq{overflow:hidden;white-space:nowrap;margin:0 -20px 34px;border-block:1px solid var(--line);padding:12px 0;color:var(--mut);font-weight:700;background:#0b1e2c88}
+.mq div{display:inline-block;animation:mq 22s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.tcard{border-radius:24px;background:linear-gradient(160deg,#0f2b3d,#08151f);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .3s}
+.tcard:hover{box-shadow:0 22px 44px -18px #ff8a5c88;transform:translateY(-6px) rotate(-1deg)}
+.tcard.sel{background:linear-gradient(135deg,#ff7a59,#ffb547)}
+.btn{border-radius:16px}.btn.gold,.add{background:linear-gradient(135deg,#ff7a59,#ffb547);color:var(--on);border:0;box-shadow:0 10px 26px -10px #ff7a59cc}
+.add{border-radius:99px;padding:0 20px}.add:hover{filter:brightness(1.1);transform:scale(1.05);color:var(--on)}
+.top{background:#050f18cc}.cat{border:1px solid var(--line);border-radius:99px;margin-right:6px}.cat.on{background:var(--gold);color:var(--on);border-color:var(--gold)}
+.search{border:1px solid var(--line);border-radius:16px;padding:13px 16px;background:#0b1e2c}
+.grid{gap:26px 22px}
+.food{background:linear-gradient(165deg,#0d2739dd,#08151fdd);border:1px solid var(--line);border-radius:28px;padding:12px 12px 18px;gap:8px;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s}
+.food>*:not(.pic){margin-inline:8px}
+.food:hover{transform:translateY(-8px);border-color:#ff8a5c77;box-shadow:0 30px 60px -28px #ff8a5c99}
+.pic{position:relative;border-radius:20px;border:0;background:radial-gradient(circle at 50% 45%,#134a5d,#0a2231 75%)}
+.pic:before{content:'';position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:conic-gradient(#ff7a59,#ffb547,#2ec4b6,#ff7a59);filter:blur(34px);opacity:.45;animation:sp 9s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.em{position:relative;animation:fl 4.5s ease-in-out infinite;filter:drop-shadow(0 20px 20px #000a)}.food:nth-child(2n) .em{animation-delay:-1.6s}.food:nth-child(3n) .em{animation-delay:-3s}
+@keyframes fl{50%{transform:translateY(-10px) rotate(5deg)}}.food:hover .em{animation-duration:1.6s}
+.food h3{font-size:26px}.price{font-family:Fraunces,serif;font-weight:800;font-size:20px;color:#ffb547;letter-spacing:0}
+.food p{direction:auto;line-height:1.6}
+.fab{border-radius:99px;box-shadow:0 18px 44px -10px #ff7a59aa;animation:up .5s}
+.sheet{border-radius:28px 28px 0 0;background:#08151f;border-top:1px solid #ff8a5c66}
+.mbox,.stat,.oc,.tb,.scroll,textarea,.note{border-radius:16px}
+.qty{border-radius:99px;overflow:hidden}
+
+body{color:#fff8ec;font-size:16px}
+.food p{color:#dbe9f0;font-size:15px;line-height:1.7}
+.food h3{color:#fff;font-size:27px}
+.eb{color:#ffb08f;font-size:12px}
+.cat,.nav button{color:#d5e5ee;font-size:12.5px}.cat.on,.nav button.on{color:var(--on)}
+.nav button.on{color:var(--gold)}
+.search{color:#fff;font-size:16px}.search::placeholder,textarea::placeholder{color:#9fb8c6}
+.hero p,.center p,small{color:#c3d6e0}
+.price{color:#ffc766;font-size:22px}
+.mq{color:#e2eef4}
+.tcard span{color:#ffb08f}
+.btn.gold,.add,.tcard.sel b,.tcard.sel span{color:#1a0a04;font-weight:800}
+
+html{background:#050f18;color-scheme:dark;-webkit-text-size-adjust:100%}
+body::before{content:'';position:fixed;-webkit-transform:translateZ(0);top:0;right:0;bottom:0;left:0;z-index:0;pointer-events:none;background:radial-gradient(60% 45% at 12% 0%,rgba(15,85,102,.7),transparent),radial-gradient(50% 40% at 95% 25%,rgba(255,122,89,.15),transparent),radial-gradient(70% 50% at 50% 110%,rgba(15,85,102,.35),transparent),#050f18}
+.glow{color:#ffb08f;-webkit-text-fill-color:currentColor}
+@supports((-webkit-background-clip:text) or (background-clip:text)){.glow{color:transparent;-webkit-text-fill-color:transparent}}
+.top{background:rgba(5,15,24,.94);-webkit-backdrop-filter:blur(12px)}
+.food{background:#0a1d2b}.tcard{background:#0b2233}
+.pic{background:#0d3042}
+.sheet,.mbox,.modal{background:#08151f}.modal{background:rgba(6,5,4,.8)}
+.btn.gold,.add{background:#ff8a5c}
+@supports(background:linear-gradient(#000,#000)){.btn.gold,.add,.tcard.sel{background:linear-gradient(135deg,#ff7a59,#ffb547)}}
+html,body{min-height:100%;background-color:#050f18!important}
 </style></head><body>
-<div id="off" class="off" hidden>Connection lost. Orders can't be sent until you're back online.</div>
-<div id="app"></div><div id="toast" class="toast"></div>
+<div id="off" class="off" hidden role="status">Connection lost. Reconnecting…</div>
+<div id="app"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
-/* ---------- Service layer (swap these functions for Supabase later) ---------- */
-const CATS=['Burgers','Pizza','Chicken','Pasta','Appetizers','Sandwiches','Salads','Desserts','Hot Drinks','Cold Drinks','Milkshakes'];
+/* ---------- Service layer (swap these functions for Supabase/REST; all validation lives here) ---------- */
+const CATS=['Seafood Pizza','Signature','Sides'];
+const IMG={};
 const P=[
-[1,'Classic Beef Burger','Grilled beef patty, cheddar, pickles, house sauce',165,'Burgers','🍔'],
-[2,'Chicken Burger','Grilled chicken breast, lettuce, tomato, special sauce',120,'Burgers','🍔'],
-[3,'Margherita','San Marzano tomato, fior di latte, basil',140,'Pizza','🍕'],
-[4,'Pepperoni Pizza','Beef pepperoni, mozzarella, chili oil',175,'Pizza','🍕'],
-[5,'Grilled Half Chicken','Herb-marinated, charred, served with rice',185,'Chicken','🍗'],
-[6,'Crispy Chicken Strips','Buttermilk fried, honey mustard dip',130,'Chicken','🍗'],
-[7,'Fettuccine Alfredo','Cream, parmesan, roasted garlic',150,'Pasta','🍝'],
-[8,'Penne Arrabbiata','Spicy tomato, garlic, parsley',115,'Pasta','🍝'],
-[9,'French Fries','Sea salt, skin-on, crisp',45,'Appetizers','🍟'],
-[10,'Mozzarella Sticks','Golden crumb, marinara',75,'Appetizers','🧀'],
-[11,'Chicken Shawarma','Garlic sauce, pickles, saj bread',95,'Sandwiches','🌯'],
-[12,'Club Sandwich','Roast turkey, egg, cheese, toasted brioche',110,'Sandwiches','🥪'],
-[13,'Caesar Salad','Romaine, parmesan, croutons, grilled chicken',105,'Salads','🥗'],
-[14,'Greek Salad','Feta, olives, cucumber, oregano',90,'Salads','🥗'],
-[15,'Molten Chocolate Cake','Warm center, vanilla ice cream',85,'Desserts','🍫'],
-[16,'Om Ali','Baked pastry, milk, nuts, raisins',65,'Desserts','🍮'],
-[17,'Turkish Coffee','Medium sugar, cardamom',35,'Hot Drinks','☕'],
-[18,'Cappuccino','Double shot, steamed milk',55,'Hot Drinks','☕'],
-[19,'Cola','Chilled, 330 ml',40,'Cold Drinks','🥤'],
-[20,'Fresh Orange Juice','Squeezed to order',60,'Cold Drinks','🍊'],
-[21,'Vanilla Milkshake','Madagascar vanilla, whipped cream',80,'Milkshakes','🥛'],
-[22,'Oreo Milkshake','Crushed cookies, chocolate drizzle',90,'Milkshakes','🥛']
+[1,'Shrimp Pizza','جمبري بلدي فريش، جبنة حيواني، صوص البوب',380,'Seafood Pizza','🦐'],
+[2,'Calamari Pizza','كاليماري طازج، موزاريلا، أعشاب',360,'Seafood Pizza','🦑'],
+[3,'Mix 2','جمبري + كاليماري على طبقة جبن غرقانة',520,'Seafood Pizza','🦞'],
+[4,'Mix 3','جمبري + كاليماري + بطارخ بخلطة بوب السرية',600,'Seafood Pizza','🦞'],
+[5,'Seafood Cocktail','بلح بحر وجمبري، موزاريلا',460,'Seafood Pizza','🦪'],
+[6,'Pizza BoB','بيتزا البيت بخلطة بوب السرية',480,'Signature','🍕'],
+[7,'Smoked Salmon','سلمون مدخن 200 جم، جبنة حيواني، صوص البوب، أطراف بالزبدة وحبة البركة',560,'Signature','🐟'],
+[8,'Creamy Ranch','بيتزا بصوص الكريمي رانش',300,'Signature','🍕'],
+[9,'Bob Fries','بطاطس بوب',95,'Sides','🍟'],
+[10,'Seafood Platter','مقبلات سي فود مشكلة',350,'Sides','🍤']
 ].map(a=>({id:a[0],name:a[1],desc:a[2],price:a[3],cat:a[4],img:a[5]}));
 const PIN={kitchen:'1111',admin:'9999'};
 const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const sv=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const bc=('BroadcastChannel' in window)?new BroadcastChannel('rk'):null;
 const sync=()=>{bc&&bc.postMessage(1)};
 const api={
- orders:()=>ls('rk_orders',[]),
- off:()=>ls('rk_off',[]),
+ orders:()=>ls('rk_orders',[]),reviews:()=>ls('rk_reviews',[]),off:()=>ls('rk_off',[]),
  products:()=>P.map(p=>({...p,available:!api.off().includes(p.id)})),
- placeOrder(tableId,items,notes){ // backend-style validation: prices come from the catalogue, never the client
+ placeOrder(tableId,items,notes,tok){ /* prices come from the catalogue, never the client */
+  const done=ls('rk_tok',{});if(tok&&done[tok]){const e=api.orders().find(o=>o.orderId===done[tok]);if(e)return e}
   tableId=Number(tableId);if(!Number.isInteger(tableId)||tableId<1||tableId>7)throw Error('Invalid table');
-  if(!items.length)throw Error('Cart is empty');
-  const lines=items.map(i=>{const p=api.products().find(x=>x.id===i.id);const q=Number(i.qty);
+  if(!items.length)throw Error('Cart is empty');const cat=api.products();
+  const lines=items.map(i=>{const p=cat.find(x=>x.id===Number(i.id));const q=Number(i.qty);
    if(!p||!p.available)throw Error('Item unavailable');if(!Number.isInteger(q)||q<1||q>20)throw Error('Invalid quantity');
    return{id:p.id,name:p.name,qty:q,price:p.price}});
-  const subtotal=lines.reduce((s,l)=>s+l.qty*l.price,0);const seq=ls('rk_seq',103)+1;localStorage.setItem('rk_seq',seq);
+  const subtotal=lines.reduce((s,l)=>s+l.qty*l.price,0),seq=ls('rk_seq',103)+1;sv('rk_seq',seq);
   const o={orderId:seq,tableId,items:lines,notes:String(notes||'').slice(0,300),subtotal,total:subtotal,status:'NEW',createdAt:Date.now()};
-  localStorage.setItem('rk_orders',JSON.stringify([...api.orders(),o]));sync();return o},
- setStatus(id,status){localStorage.setItem('rk_orders',JSON.stringify(api.orders().map(o=>o.orderId===id?{...o,status}:o)));sync()},
- toggle(id){const s=api.off();localStorage.setItem('rk_off',JSON.stringify(s.includes(id)?s.filter(x=>x!==id):[...s,id]));sync()}
+  sv('rk_orders',[...api.orders(),o]);if(tok){done[tok]=seq;sv('rk_tok',done)}sync();return o},
+ setStatus(id,status){sv('rk_orders',api.orders().map(o=>o.orderId===id?{...o,status}:o));sync()},
+ review(orderId,rating,comment){const o=api.orders().find(x=>x.orderId===orderId);rating=Number(rating);
+  if(!o||o.status!=='COMPLETED')throw Error('Not ready');if(!Number.isInteger(rating)||rating<1||rating>5)throw Error('Invalid rating');
+  if(api.reviews().some(r=>r.orderId===orderId))throw Error('Already reviewed'); /* unique order_id */
+  const r={id:Date.now(),orderId,tableId:o.tableId,rating,comment:String(comment||'').slice(0,500),createdAt:Date.now()};sv('rk_reviews',[...api.reviews(),r]);sync();return r},
+ toggle(id){const s=api.off();sv('rk_off',s.includes(id)?s.filter(x=>x!==id):[...s,id]);sync()}
 };
 /* ---------- helpers ---------- */
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const egp=n=>n.toLocaleString('en-US')+' EGP',tm=t=>new Date(t).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
-const TBL='<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="17" cy="13" rx="12" ry="5"/><path d="M8 16v13M26 16v13M17 18v11"/></svg>';
-let T=null,Cat='Burgers',Q='',cart={},notes='',sheet=false,confirmOpen=false,view='menu',HQ='',HF='ALL',KF='ALL',AF='ALL',seen=0,first=true;
+const egp=n=>n.toLocaleString('en-US')+' EGP',tm=t=>new Date(t).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}),pad=n=>String(n).padStart(2,'0');
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,stars=n=>'★'.repeat(n)+'☆'.repeat(5-n);
+let T=null,Cat='Seafood Pizza',Q='',cart={},notes='',sheet=false,confirmOpen=false,view='track',HQ='',HF='ALL',KF='ALL',AT='Tables',seen=0,first=true,
+ RV=true,SK=false,skDone=false,SUB=false,TOK=null,bumpN=false,R=0,RC='',lastKey='',lastSt={},prevPct=0;
 const authed=r=>sessionStorage.getItem('rk_auth_'+r)==='1';
-function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),3200)}
+function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2800)}
 function beep(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=880;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.15,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.5);o.start();o.stop(a.currentTime+.5)}catch(e){}}
 const empty=(i,h,p)=>`<div class="empty"><div class="i">${i}</div><h3>${h}</h3><p>${p}</p></div>`;
-const cartLines=()=>Object.entries(cart).map(([id,q])=>({p:api.products().find(x=>x.id==id),q})).filter(l=>l.p&&l.p.available);
+const cartLines=()=>{const pr=api.products();return Object.entries(cart).map(([id,q])=>({p:pr.find(x=>x.id==id),q})).filter(l=>l.p&&l.p.available)};
 const cartTotal=()=>cartLines().reduce((s,l)=>s+l.p.price*l.q,0),cartCount=()=>cartLines().reduce((s,l)=>s+l.q,0);
-const myId=()=>ls('rk_my_'+T,null),myOrder=()=>api.orders().find(o=>o.orderId===myId());
+const myOrder=()=>{const s=ls('rk_sess',null);return s&&api.orders().find(o=>o.orderId===s.orderId)};
+const myRev=o=>api.reviews().find(r=>r.orderId===o.orderId);
+const pic=p=>IMG[p.id]?`<img src="${esc(IMG[p.id])}" alt="${esc(p.name)}" loading="lazy" decoding="async">`:`<span class="em" role="img" aria-label="${esc(p.name)}">${p.img}</span>`;
+function fly(b){if(RM)return;const c=b.closest('.food'),pc=c&&c.querySelector('.pic');if(!pc)return;const s=pc.getBoundingClientRect(),f=$('.fab'),d=f?f.getBoundingClientRect():{left:innerWidth/2,top:innerHeight-50,width:0,height:0};
+ const e=document.createElement('div');e.className='fly';e.textContent=c.dataset.e;e.style.cssText=`left:${s.left+s.width/2-28}px;top:${s.top+s.height/2-28}px`;document.body.appendChild(e);
+ e.animate([{transform:'none',opacity:1},{transform:`translate(${d.left+d.width/2-s.left-s.width/2}px,${d.top+d.height/2-s.top-s.height/2}px) scale(.3)`,opacity:.2}],{duration:650,easing:'cubic-bezier(.5,0,.2,1)'}).onfinish=()=>e.remove()}
 /* ---------- customer ---------- */
-function select(){return`<div class="wrap"><div class="hero"><h1>Welcome</h1><p>Select your table to start your order.</p></div>
-<div class="tables">${[1,2,3,4,5,6,7].map(n=>`<button class="tcard" data-a="pick" data-v="${n}">${TBL}<b>Table ${n}</b><span>Select Table</span></button>`).join('')}</div></div>`}
-function qtyCtl(id,q){return`<div class="qty"><button data-a="dec" data-v="${id}" aria-label="Less">−</button><span>${q}</span><button data-a="inc" data-v="${id}" aria-label="More">+</button></div>`}
-function grid(){const q=Q.trim().toLowerCase();const l=api.products().filter(p=>q?(p.name+p.desc+p.cat).toLowerCase().includes(q):p.cat===Cat);
+function select(){return`<div class="wrap"><div class="hero"><div class="eb">بيتزا بريحة البحر</div><h1 class="glow">Pizza BoB</h1><div class="rule"></div><p>Pick your table and dive in.</p></div><div class="mq"><div>🦐 جمبري &nbsp;✦&nbsp; 🦑 كاليماري &nbsp;✦&nbsp; 🐟 سلمون مدخن &nbsp;✦&nbsp; 🦪 بلح بحر &nbsp;✦&nbsp; 🦞 ميكس بوب &nbsp;✦&nbsp; 🦐 جمبري &nbsp;✦&nbsp; 🦑 كاليماري &nbsp;✦&nbsp; 🐟 سلمون مدخن &nbsp;✦&nbsp; 🦪 بلح بحر &nbsp;✦&nbsp; 🦞 ميكس بوب &nbsp;✦&nbsp;</div></div>
+<div class="tables">${[1,2,3,4,5,6,7].map(n=>`<button class="tcard" data-a="pick" data-v="${n}" aria-label="Table ${n}"><span>TABLE</span><b>${pad(n)}</b></button>`).join('')}</div></div>`}
+function qtyCtl(id,q){return`<div class="qty"><button data-a="dec" data-v="${id}" aria-label="Decrease quantity">−</button><span aria-live="polite">${q}</span><button data-a="inc" data-v="${id}" aria-label="Increase quantity">+</button></div>`}
+function grid(){if(SK)return Array(6).fill('<div><div class="sk"></div><div class="skl"></div><div class="skl" style="width:35%"></div></div>').join('');
+ const q=Q.trim().toLowerCase(),l=api.products().filter(p=>q?(p.name+p.desc+p.cat).toLowerCase().includes(q):p.cat===Cat);
  if(!l.length)return empty('🔍','No results',`Nothing matches “${esc(Q)}”. Try another dish.`);
- return l.map(p=>{const c=cart[p.id]||0;return`<div class="food"><div class="pic">${p.img}</div><div class="fb"><div class="row"><h3>${p.name}</h3></div><p>${p.desc}</p><div class="row"><span class="price">${egp(p.price)}</span>${p.available?(c?qtyCtl(p.id,c):''):'<small>Sold out</small>'}</div>${p.available?(c?'':`<button class="btn sm" data-a="add" data-v="${p.id}">Add to cart</button>`):''}</div></div>`}).join('')}
-function menu(){const mo=myOrder();
- if(view==='track'&&mo)return track(mo);
- const L=cartLines();
- return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Maison Table</span><span class="row" style="gap:8px">${mo&&mo.status!=='COMPLETED'?`<button class="pill" data-a="track">Order #${mo.orderId} · ${mo.status}</button>`:''}<span class="pill">Table ${T}</span></span></div>
- <input class="search" id="q" placeholder="Search menu…" value="${esc(Q)}"><div class="cats">${CATS.map(c=>`<button class="cat ${c===Cat&&!Q?'on':''}" data-a="cat" data-v="${c}">${c}</button>`).join('')}</div></div></div>
+ return l.map((p,i)=>{const c=cart[p.id]||0;return`<article class="food ${RV?'rv':''} ${p.available?'':'so'}" style="--i:${i}" data-e="${p.img}"><div class="pic">${pic(p)}</div><div class="eb">${p.cat}</div><h3>${p.name}</h3><p>${p.desc}</p><div class="row"><span class="price">${egp(p.price)}</span>${p.available?(c?qtyCtl(p.id,c):`<button class="add" data-a="add" data-v="${p.id}" aria-label="Add ${esc(p.name)} to cart">Add to cart</button>`):'<small class="eb" style="color:var(--mut)">Unavailable</small>'}</div></article>`}).join('')}
+function menu(){const o=myOrder(),L=cartLines(),n=cartCount();
+ if(!skDone){skDone=SK=true;setTimeout(()=>{SK=false;RV=true;render()},500)}
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Pizza BoB</span><span class="pill">Table ${pad(T)}</span></div>
+ <div class="row"><nav class="nav" aria-label="Sections"><button class="on" data-a="menu">Menu</button><button data-a="open">Order${n?' ('+n+')':''}</button>${o?'<button data-a="track">Status</button>':''}</nav></div>
+ <input class="search" id="q" placeholder="Search the menu…" aria-label="Search the menu" value="${esc(Q)}"><div class="cats" role="tablist">${CATS.map(c=>`<button class="cat ${c===Cat&&!Q?'on':''}" data-a="cat" data-v="${c}">${c}</button>`).join('')}</div></div></div>
  <div class="wrap"><div class="grid" id="grid">${grid()}</div></div>
- ${L.length?`<button class="btn gold fab" data-a="open"><span>View cart · ${cartCount()}</span><span>${egp(cartTotal())}</span></button>`:''}
+ ${L.length?`<button class="btn gold fab" data-a="open" aria-label="View your order"><span>Your order · <span class="${bumpN?'bump':''}">${n}</span></span><span>${egp(cartTotal())}</span></button>`:''}
  <div class="veil ${sheet?'on':''}" data-a="close"></div>
- <div class="sheet ${sheet?'on':''}"><div class="row"><h2>Your order · Table ${T}</h2><button data-a="close" aria-label="Close" style="font-size:22px">✕</button></div>
- ${L.length?L.map(({p,q})=>`<div class="ci"><div class="t">${p.img}</div><div class="m"><b>${p.name}</b><br><small>${egp(p.price)} each · <b>${egp(p.price*q)}</b></small></div><div>${qtyCtl(p.id,q)}<div style="text-align:right"><button class="rm" data-a="rm" data-v="${p.id}">Remove</button></div></div></div>`).join('')+
- `<div class="tot"><span>Subtotal</span><span>${egp(cartTotal())}</span></div><textarea id="notes" placeholder="Any special requests? No onions, extra sauce…">${esc(notes)}</textarea><button class="btn" data-a="review">Send order</button>`
- :empty('🛒','Your cart is empty','Pick something from the menu to get started.')}</div>
- ${confirmOpen?`<div class="modal"><div class="mbox"><h2>Table ${T}</h2><p style="color:var(--mut);margin:4px 0 14px">Your order:</p>${L.map(({p,q})=>`<div class="row"><span>${q} × ${p.name}</span><span>${egp(p.price*q)}</span></div>`).join('')}${notes?`<div class="note" style="margin-top:10px">${esc(notes)}</div>`:''}<div class="tot"><span>Total</span><span>${egp(cartTotal())}</span></div><div style="display:grid;gap:8px;margin-top:18px"><button class="btn gold" data-a="confirm">Confirm order</button><button class="btn ghost" data-a="back">Go back</button></div></div></div>`:''}`}
-function track(o){const S=['NEW','COOKING','READY','COMPLETED'],i=S.indexOf(o.status);
- const H={NEW:['Order Sent Successfully','Your order has been sent to the kitchen.'],COOKING:['Being prepared','The kitchen has started your order.'],READY:['Your food is ready','It will be at your table shortly.'],COMPLETED:['Enjoy your meal','Your order is complete.']}[o.status];
- return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Maison Table</span><span class="pill">Table ${T}</span></div></div></div><div class="center"><div class="check">✓</div><h1 style="font-size:36px">${H[0]}</h1><p style="color:var(--mut)">${H[1]}</p>
- <div class="big">#${o.orderId}</div><div class="prog">${S.map((s,k)=>`<div class="step ${k<=i?'d':''}">${s}</div>`).join('')}</div>
- <div style="text-align:left;margin:22px 0">${o.items.map(l=>`<div class="row"><span>${l.qty} × ${l.name}</span><span>${egp(l.qty*l.price)}</span></div>`).join('')}<div class="tot"><span>Total</span><span>${egp(o.total)}</span></div></div>
- <button class="btn ${o.status==='COMPLETED'?'gold':'ghost'}" data-a="more">${o.status==='COMPLETED'?'Order again':'Add more items'}</button></div>`}
+ <div class="sheet ${sheet?'on':''}" role="dialog" aria-label="Your order"><div class="grab"></div><div class="row"><div><div class="eb">Table ${pad(T)}</div><h2 style="font-size:32px">Your order</h2></div><button data-a="close" aria-label="Close order" style="font-size:22px;width:44px;height:44px">✕</button></div>
+ ${L.length?L.map(({p,q})=>`<div class="ci"><div class="t">${IMG[p.id]?`<img src="${esc(IMG[p.id])}" alt="" loading="lazy">`:p.img}</div><div class="m"><b>${p.name}</b><br><small>${egp(p.price)} each · <b>${egp(p.price*q)}</b></small></div><div>${qtyCtl(p.id,q)}<div style="text-align:right"><button class="rm" data-a="rm" data-v="${p.id}" aria-label="Remove ${esc(p.name)}">Remove</button></div></div></div>`).join('')+
+ `<div class="tot"><span>Subtotal</span><span>${egp(cartTotal())}</span></div><label class="eb" for="notes" style="display:block;margin-top:18px">Special instructions</label><textarea id="notes" maxlength="300" placeholder="No onions, extra sauce, less spicy, allergy information…">${esc(notes)}</textarea><div class="tot" style="border:0;margin:0 0 14px;padding:0"><span>Total</span><span>${egp(cartTotal())}</span></div><button class="btn gold" data-a="review">Send order</button>`
+ :empty('🛎️','Your order is empty','Choose something from the menu to begin.')}</div>
+ ${confirmOpen?`<div class="modal" role="dialog" aria-label="Confirm order"><div class="mbox"><div class="eb">Table ${pad(T)}</div><h2 style="font-size:32px;margin:4px 0 14px">Confirm your order</h2>${L.map(({p,q})=>`<div class="row"><span>${q} × ${p.name}</span><span>${egp(p.price*q)}</span></div>`).join('')}${notes?`<div class="note" style="margin-top:12px">${esc(notes)}</div>`:''}<div class="tot"><span>Total</span><span>${egp(cartTotal())}</span></div><div style="display:grid;gap:8px;margin-top:18px"><button class="btn gold" data-a="confirm">Confirm order</button><button class="btn ghost" data-a="back">Go back</button></div></div></div>`:''}
+ ${SUB?`<div class="subm" role="alert"><div><div class="eb">Table ${pad(T)}</div><h2>Sending to the kitchen</h2><div class="ln"></div></div></div>`:''}`}
+const STG=['NEW','COOKING','READY','COMPLETED'],LBL=['Received','Cooking','Ready','Completed'];
+const stage=o=>o.status!=='COMPLETED'?'wait':(myRev(o)?'thanks':'rate');
+function track(o){const i=STG.indexOf(o.status),s=stage(o),pct=i/3*100,f=prevPct;prevPct=pct;
+ const hd=`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Pizza BoB</span><span class="pill">Table ${pad(o.tableId)}</span></div></div></div>`;
+ if(s==='rate')return`${hd}<div class="center"><div class="eb">Order #${o.orderId} · Table ${pad(o.tableId)}</div><h1 style="font-size:42px;margin:14px 0 4px">How was your experience?</h1><p style="color:var(--mut);margin:0">Your meal is complete. We would love to hear from you.</p>
+ <div class="stars" role="radiogroup" aria-label="Rating">${[1,2,3,4,5].map(n=>`<button role="radio" aria-checked="${R===n}" aria-label="${n} star${n>1?'s':''}" data-a="star" data-v="${n}" class="${n<=R?'on':''}" style="--i:${n-1}">★</button>`).join('')}</div>
+ <textarea id="rc" maxlength="500" placeholder="Tell us more (optional)" aria-label="Optional comment">${esc(RC)}</textarea><button class="btn gold" data-a="rate" ${R?'':'disabled'}>Submit feedback</button><p style="margin-top:20px"><button data-a="new" class="eb" style="color:var(--mut);min-height:44px">Skip and start a new order</button></p></div>`;
+ if(s==='thanks')return`${hd}<div class="center"><svg class="ring" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="39"/><path d="M27 43l10 10 20-22"/></svg><div class="eb">Order #${o.orderId}</div><h1 style="font-size:40px;margin:12px 0">Thank you for your feedback</h1><p style="color:var(--mut)">We hope to welcome you again soon.</p><div class="rule"></div><button class="btn gold" data-a="new">Start new order</button></div>`;
+ const H={NEW:'Your order has been received.',COOKING:'The kitchen is preparing your order.',READY:'Your order is ready and on its way to your table.'}[o.status];
+ return`${hd}<div class="center"><div class="eb">Order confirmed</div><div class="big">ORDER #${o.orderId}</div><div class="eb" style="color:var(--ink)">Table ${pad(o.tableId)}</div><p style="color:var(--mut);margin:16px 0 0" aria-live="polite">${H}</p>
+ <div class="tl" role="img" aria-label="Status: ${LBL[i]}"><i style="--f:${f*.75}%;width:${pct*.75}%"></i>${STG.map((x,k)=>`<div class="st ${k<=i?'d':''} ${k===i?'c':''}">${LBL[k]}</div>`).join('')}</div>
+ <div style="text-align:left;margin:28px 0">${o.items.map(l=>`<div class="row"><span>${l.qty} × ${l.name}</span><span>${egp(l.qty*l.price)}</span></div>`).join('')}${o.notes?`<div class="note" style="margin-top:10px">${esc(o.notes)}</div>`:''}<div class="tot"><span>Total</span><span>${egp(o.total)}</span></div></div>
+ <button class="btn ghost" data-a="more">Order more</button></div>`}
 /* ---------- staff ---------- */
-function gate(r){return`<div class="pin"><h1 style="font-size:42px">${r==='kitchen'?'Kitchen':'Admin'}</h1><p style="color:var(--mut)">Staff only. Enter your PIN.</p><input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off"><button class="btn" data-a="pin" data-v="${r}">Unlock</button><p id="perr" style="color:var(--warn);min-height:20px"></p></div>`}
-const ST=['NEW','COOKING','READY','COMPLETED'],NEXT={NEW:['Accept order','COOKING'],COOKING:['Mark as ready','READY'],READY:['Complete order','COMPLETED']},ICON={NEW:'',COOKING:'🟡 ',READY:'🟢 ',COMPLETED:'✓ '};
-function kcard(o){const n=NEXT[o.status];return`<div class="oc ${o.status}"><div class="row"><h3>Table ${o.tableId}</h3><span class="badge ${o.status}">${ICON[o.status]}${o.status}</span></div><small style="color:var(--mut)">Order #${o.orderId} · ${tm(o.createdAt)}</small>${o.items.map(l=>`<div><b>${l.qty} ×</b> ${l.name}</div>`).join('')}${o.notes?`<div class="note"><b>Special instructions:</b> “${esc(o.notes)}”</div>`:''}${n?`<button class="btn ${o.status==='NEW'?'gold':''}" data-a="st" data-v="${o.orderId}" data-s="${n[1]}">${n[0]}</button>`:''}</div>`}
+function gate(r){return`<div class="pin"><div class="eb">Staff only</div><h1 style="font-size:44px">${r==='kitchen'?'Kitchen':'Admin'}</h1><label for="pin" style="color:var(--mut)">Enter your PIN</label><input id="pin" type="password" inputmode="numeric" maxlength="4" autocomplete="off"><button class="btn gold" data-a="pin" data-v="${r}">Unlock</button><p id="perr" style="color:var(--warn);min-height:20px" role="alert"></p></div>`}
+const NEXT={NEW:['Accept · start cooking','COOKING'],COOKING:['Mark ready','READY'],READY:['Complete order','COMPLETED']};
+const ago=t=>Math.max(0,Math.round((Date.now()-t)/60000))+' min ago';
+function kcard(o){const n=NEXT[o.status];return`<div class="oc ${o.status}"><div class="row"><h3>Table ${pad(o.tableId)}</h3><span class="badge ${o.status}">${o.status}</span></div><small style="color:var(--mut)">Order #${o.orderId} · ${tm(o.createdAt)} · ${ago(o.createdAt)}</small>${o.items.map(l=>`<div><b>${l.qty} ×</b> ${l.name}</div>`).join('')}${o.notes?`<div class="note"><b>Notes:</b> “${esc(o.notes)}”</div>`:''}${n?`<button class="btn ${o.status==='NEW'?'gold':''}" data-a="st" data-v="${o.orderId}" data-s="${n[1]}">${n[0]}</button>`:''}</div>`}
 function kitchen(){const all=api.orders().slice().reverse(),cnt=s=>all.filter(o=>o.status===s).length,l=KF==='ALL'?all.filter(o=>o.status!=='COMPLETED'):all.filter(o=>o.status===KF);
- return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Kitchen</span><button class="btn ghost sm" data-a="out" data-v="kitchen">Lock</button></div></div></div><div class="wrap dash"><div class="tabs">${['ALL',...ST].map(s=>`<button class="tab ${KF===s?'on':''}" data-a="kf" data-v="${s}">${s}${s==='ALL'?'':`<i>${cnt(s)}</i>`}</button>`).join('')}</div>
+ return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Kitchen</span><button class="btn ghost sm" data-a="out" data-v="kitchen">Lock</button></div></div></div><div class="wrap dash"><div class="tabs">${['ALL',...STG].map(s=>`<button class="tab ${KF===s?'on':''}" data-a="kf" data-v="${s}">${s}<i>${s==='ALL'?all.filter(o=>o.status!=='COMPLETED').length:cnt(s)}</i></button>`).join('')}</div>
  ${l.length?`<div class="orders">${l.map(kcard).join('')}</div>`:(all.length?empty('✓','Nothing here','No orders with this status.'):empty('👨‍🍳','Kitchen is quiet','New orders appear here the moment a table sends them.'))}</div>`}
-function stat(o){return o.status==='NEW'?'Active':o.status==='COOKING'?'Cooking':o.status==='READY'?'Ready':'Available'}
+const stat=o=>o.status==='NEW'?'Active':o.status==='COOKING'?'Cooking':o.status==='READY'?'Ready':'Available';
 function hist(){const q=HQ.trim().toLowerCase();const l=api.orders().slice().reverse().filter(o=>(HF==='ALL'||o.status===HF)&&(!q||('#'+o.orderId+' table '+o.tableId+' '+o.items.map(i=>i.name).join(' ')).toLowerCase().includes(q)));
- return l.length?`<table><tr><th>Order</th><th>Table</th><th>Items</th><th>Total</th><th>Status</th><th>Time</th></tr>${l.map(o=>`<tr><td>#${o.orderId}</td><td>${o.tableId}</td><td>${o.items.map(i=>i.qty+'× '+i.name).join(', ')}</td><td>${egp(o.total)}</td><td><span class="badge ${o.status}">${o.status}</span></td><td>${tm(o.createdAt)}</td></tr>`).join('')}</table>`:empty('🧾','No orders yet','Order history will show up here.')}
-function admin(){const os=api.orders(),done=os.filter(o=>o.status==='COMPLETED'),rev=os.reduce((s,o)=>s+o.total,0);
+ return l.length?`<table><tr><th>Order</th><th>Table</th><th>Items</th><th>Notes</th><th>Total</th><th>Status</th><th>Time</th></tr>${l.map(o=>`<tr><td>#${o.orderId}</td><td>${o.tableId}</td><td>${o.items.map(i=>i.qty+'× '+esc(i.name)).join(', ')}</td><td>${esc(o.notes||'–')}</td><td>${egp(o.total)}</td><td><span class="badge ${o.status}">${o.status}</span></td><td>${tm(o.createdAt)}</td></tr>`).join('')}</table>`:empty('🧾','No orders yet','Order history will show up here.')}
+function admin(){const os=api.orders(),rv=api.reviews(),done=os.filter(o=>o.status==='COMPLETED'),rev=os.reduce((s,o)=>s+o.total,0),avg=rv.length?(rv.reduce((s,r)=>s+r.rating,0)/rv.length).toFixed(1):'–',pr=api.products();let b='';
+ if(AT==='Tables')b=`<div class="tg">${[1,2,3,4,5,6,7].map(n=>{const a=os.filter(o=>o.tableId===n&&o.status!=='COMPLETED').pop(),s=a?stat(a):'Available';return`<div class="tb ${s}"><b>Table ${pad(n)}</b><small>${s}${a?' · #'+a.orderId:''}</small></div>`}).join('')}</div>`;
+ else if(AT==='Orders')b=`<input class="search" id="hq" placeholder="Search by order, table or item…" aria-label="Search orders" value="${esc(HQ)}"><div class="tabs">${['ALL',...STG].map(s=>`<button class="tab ${HF===s?'on':''}" data-a="hf" data-v="${s}">${s}</button>`).join('')}</div><div class="scroll" id="hist">${hist()}</div>`;
+ else if(AT==='Products')b=CATS.map(c=>{const l=pr.filter(p=>p.cat===c);return`<h2 class="s">${c} <small class="eb">${l.filter(p=>p.available).length}/${l.length} available</small></h2><div class="tabs" style="margin-top:0">${l.map(p=>`<button class="tab ${p.available?'on':''}" data-a="tog" data-v="${p.id}" aria-pressed="${p.available}">${p.img} ${p.name} · ${p.price}</button>`).join('')}</div>`}).join('');
+ else if(AT==='Sales'){const by={},bc2={};os.forEach(o=>o.items.forEach(i=>{by[i.name]=by[i.name]||{q:0,r:0};by[i.name].q+=i.qty;by[i.name].r+=i.qty*i.price;const c=(P.find(p=>p.id===i.id)||{}).cat||'Other';bc2[c]=(bc2[c]||0)+i.qty*i.price}));
+  const bar=(e,mx)=>e.length?e.map(([k,v])=>`<div style="margin:10px 0"><div class="row"><span>${esc(k)}</span><b>${egp(v)}</b></div><div class="bar2" style="width:${mx?v/mx*100:0}%"></div></div>`).join(''):'<p style="color:var(--mut)">No sales yet.</p>';
+  const top=Object.entries(by).sort((a,b)=>b[1].q-a[1].q).slice(0,6).map(([k,v])=>[k+' × '+v.q,v.r]),cs=Object.entries(bc2).sort((a,b)=>b[1]-a[1]);
+  b=`<h2 class="s">Top dishes</h2>${bar(top,Math.max(0,...top.map(x=>x[1])))}<h2 class="s">Revenue by category</h2>${bar(cs,Math.max(0,...cs.map(x=>x[1])))}<p style="color:var(--mut)">Average order: ${os.length?egp(Math.round(rev/os.length)):'–'}</p>`}
+ else b=rv.length?`<div class="orders">${rv.slice().reverse().map(r=>`<div class="oc"><div class="row"><b style="color:var(--gold);font-size:18px" aria-label="${r.rating} of 5">${stars(r.rating)}</b><small>${tm(r.createdAt)}</small></div><small style="color:var(--mut)">Order #${r.orderId} · Table ${pad(r.tableId)}</small>${r.comment?`<div class="note">“${esc(r.comment)}”</div>`:'<small style="color:var(--mut)">No comment</small>'}</div>`).join('')}</div>`:empty('★','No reviews yet','Guest ratings appear here after completed orders.');
  return`<div class="top"><div class="wrap"><div class="bar"><span class="brand">Admin</span><button class="btn ghost sm" data-a="out" data-v="admin">Lock</button></div></div></div><div class="wrap dash">
- <div class="stats"><div class="stat"><small>Today's orders</small><b>${os.length}</b></div><div class="stat"><small>Active orders</small><b>${os.length-done.length}</b></div><div class="stat"><small>Completed orders</small><b>${done.length}</b></div><div class="stat"><small>Today's revenue</small><b>${egp(rev)}</b></div></div>
- <h2 class="s">Tables</h2><div class="tg">${[1,2,3,4,5,6,7].map(n=>{const a=os.filter(o=>o.tableId===n&&o.status!=='COMPLETED').pop(),s=a?stat(a):'Available';return`<div class="tb ${s}"><b>Table ${n}</b><small>${s}</small></div>`}).join('')}</div>
- <h2 class="s">Menu availability</h2><div class="tabs">${api.products().map(p=>`<button class="tab ${p.available?'on':''}" data-a="tog" data-v="${p.id}">${p.img} ${p.name}</button>`).join('')}</div>
- <h2 class="s">Order history</h2><input class="search" id="hq" placeholder="Search by order, table or item…" value="${esc(HQ)}"><div class="tabs">${['ALL',...ST].map(s=>`<button class="tab ${HF===s?'on':''}" data-a="hf" data-v="${s}">${s}</button>`).join('')}</div><div class="scroll" id="hist">${hist()}</div></div>`}
+ <div class="stats"><div class="stat"><small>Orders</small><b>${os.length}</b></div><div class="stat"><small>Active</small><b>${os.length-done.length}</b></div><div class="stat"><small>Completed</small><b>${done.length}</b></div><div class="stat"><small>Revenue</small><b>${egp(rev)}</b></div><div class="stat"><small>Avg rating (${rv.length})</small><b>${avg}</b></div></div>
+ <div class="tabs">${['Tables','Orders','Products','Sales','Reviews'].map(t=>`<button class="tab ${AT===t?'on':''}" data-a="at" data-v="${t}">${t}</button>`).join('')}</div>${b}</div>`}
 /* ---------- router / render ---------- */
-function render(){const h=location.hash.replace('#','')||'/',m=h.match(/^\/table\/(\d+)/);let out;
- if(h.startsWith('/kitchen')){out=authed('kitchen')?kitchen():gate('kitchen');
+function render(){const h=location.hash.replace('#','')||'/',m=h.match(/^\/table\/(\d+)/);let out,key=h;
+ if(h.startsWith('/kitchen')){out=authed('kitchen')?kitchen():gate('kitchen');key+=authed('kitchen');
   const os=api.orders(),mx=Math.max(0,...os.map(o=>o.orderId));
-  if(authed('kitchen')&&!first&&mx>seen){const o=os.find(x=>x.orderId===mx);toast(`🔔 NEW ORDER<br>Table ${o.tableId} · Order #${o.orderId}`);beep()}seen=mx;first=false}
- else if(h.startsWith('/admin'))out=authed('admin')?admin():gate('admin');
- else if(m){const t=+m[1];if(t<1||t>7)out=`<div class="center">${empty('⚠️','Table not found','This table number doesn\'t exist. Tables run from 1 to 7.')}<a href="#/"><button class="btn">Choose a table</button></a></div>`;else{T=t;out=menu()}}
- else out=select();
- $('#app').innerHTML=out;if(m&&T&&!ls('rk_my_'+T,null))view='menu'}
+  if(authed('kitchen')&&!first&&mx>seen){const o=os.find(x=>x.orderId===mx);toast(`New order<br>Table ${pad(o.tableId)} · #${o.orderId}`);beep()}seen=mx;first=false}
+ else if(h.startsWith('/admin')){out=authed('admin')?admin():gate('admin');key+=authed('admin')}
+ else{const o=myOrder();
+  if(o&&view==='track'){T=o.tableId;out=track(o);key='trk'+stage(o);if(lastSt[o.orderId]&&lastSt[o.orderId]!==o.status&&o.status!=='COMPLETED')toast('Your order is now '+o.status.toLowerCase());lastSt[o.orderId]=o.status}
+  else if(m){const t=+m[1];if(t<1||t>7)out=`<div class="center">${empty('⚠️','Table not found','Tables are numbered 1 to 7.')}<a href="#/"><button class="btn">Choose a table</button></a></div>`;else{T=t;out=menu();key='menu'}}
+  else if(o){T=o.tableId;out=menu();key='menu'}
+  else{T=null;out=select();key='select'}}
+ const y=scrollY,cs=$('.cats'),cx=cs?cs.scrollLeft:0,ap=$('#app');ap.innerHTML=out;RV=false;bumpN=false;
+ if(key!==lastKey){lastKey=key;ap.classList.remove('enter');void ap.offsetWidth;ap.classList.add('enter');scrollTo(0,0);if(key==='menu'){skDone=skDone}}else{scrollTo(0,y);const c2=$('.cats');if(c2)c2.scrollLeft=cx}}
 const busy=()=>/INPUT|TEXTAREA/.test(document.activeElement.tagName);
-const onSync=()=>{if(!busy())render()};
-addEventListener('storage',onSync);bc&&(bc.onmessage=onSync);addEventListener('hashchange',()=>{sheet=confirmOpen=false;view=myOrder&&location.hash.includes('table')?view:'menu';render()});
+const onSync=()=>{if(!busy()&&!SUB)render()};
+addEventListener('storage',onSync);bc&&(bc.onmessage=onSync);addEventListener('hashchange',()=>{sheet=confirmOpen=false;render()});
 addEventListener('online',()=>$('#off').hidden=true);addEventListener('offline',()=>$('#off').hidden=false);
 document.addEventListener('input',e=>{const t=e.target;
- if(t.id==='q'){Q=t.value;$('#grid').innerHTML=grid()}else if(t.id==='notes')notes=t.value;else if(t.id==='hq'){HQ=t.value;$('#hist').innerHTML=hist()}});
+ if(t.id==='q'){Q=t.value;RV=true;$('#grid').innerHTML=grid();RV=false}else if(t.id==='notes')notes=t.value;else if(t.id==='rc')RC=t.value;else if(t.id==='hq'){HQ=t.value;$('#hist').innerHTML=hist()}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,v=b.dataset.v,n=+v;
  switch(a){
- case'pick':location.hash='/table/'+v;return;
- case'cat':Cat=v;Q='';break;
- case'add':cart[n]=1;break;case'inc':cart[n]=Math.min(20,(cart[n]||0)+1);break;
+ case'pick':document.querySelectorAll('.tcard').forEach(x=>x.classList.add(x===b?'sel':'dim'));setTimeout(()=>{skDone=false;location.hash='/table/'+v},RM?0:380);return;
+ case'cat':Cat=v;Q='';RV=true;break;
+ case'add':fly(b);cart[n]=1;bumpN=true;toast('Added to your order');break;
+ case'inc':cart[n]=Math.min(20,(cart[n]||0)+1);bumpN=true;break;
  case'dec':cart[n]>1?cart[n]--:delete cart[n];break;case'rm':delete cart[n];break;
- case'open':sheet=true;break;case'close':sheet=false;break;
+ case'open':sheet=true;break;case'close':sheet=false;break;case'menu':view='menu';window.scrollTo(0,0);break;
  case'review':sheet=false;confirmOpen=true;break;case'back':confirmOpen=false;sheet=true;break;
- case'confirm':if(!navigator.onLine){toast('Connection lost. Check your network and try again.');return}
-  try{const o=api.placeOrder(T,cartLines().map(l=>({id:l.p.id,qty:l.q})),notes);localStorage.setItem('rk_my_'+T,o.orderId);cart={};notes='';confirmOpen=false;view='track'}catch(er){confirmOpen=false;toast('Order failed: '+esc(er.message)+'. Please try again.')}break;
- case'track':view='track';break;
- case'more':{const o=myOrder();if(o&&o.status==='COMPLETED')localStorage.removeItem('rk_my_'+T);view='menu';break}
- case'st':api.setStatus(n,b.dataset.s);break;case'kf':KF=v;break;case'hf':HF=v;break;case'tog':api.toggle(n);break;
- case'pin':if($('#pin').value===PIN[v]){sessionStorage.setItem('rk_auth_'+v,'1');first=true}else{$('#perr').textContent='Wrong PIN. Try again.';return}break;
+ case'confirm':if(SUB)return;if(!navigator.onLine){toast('Connection lost. Please try again.');return}
+  TOK=TOK||(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random());SUB=true;confirmOpen=false;render();
+  setTimeout(()=>{try{const o=api.placeOrder(T,cartLines().map(l=>({id:l.p.id,qty:l.q})),notes,TOK);sv('rk_sess',{orderId:o.orderId});cart={};notes='';TOK=null;view='track';prevPct=0}
+   catch(er){toast('Your order could not be submitted. Please try again.')}SUB=false;render()},RM?100:1000);return;
+ case'track':view='track';break;case'more':view='menu';RV=true;break;
+ case'star':R=n;break;
+ case'rate':if(!R)return;try{api.review(myOrder().orderId,R,RC)}catch(er){if(er.message!=='Already reviewed'){toast('Something went wrong. Please try again.');return}}R=0;RC='';break;
+ case'new':localStorage.removeItem('rk_sess');cart={};notes='';TOK=null;T=null;R=0;RC='';view='track';sheet=confirmOpen=false;skDone=false;RV=true;location.hash='/';break;
+ case'st':api.setStatus(n,b.dataset.s);break;case'kf':KF=v;break;case'hf':HF=v;break;case'tog':api.toggle(n);break;case'at':AT=v;break;
+ case'pin':if($('#pin').value===PIN[v]){sessionStorage.setItem('rk_auth_'+v,'1');first=true}else{$('#perr').textContent='Incorrect PIN. Please try again.';return}break;
  case'out':sessionStorage.removeItem('rk_auth_'+v);break;}
  render()});
+(function(){for(let i=0;i<14;i++){const b=document.createElement('i');b.className='bub';const z=8+Math.random()*26;b.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${9+Math.random()*12}s;animation-delay:-${Math.random()*15}s`;document.body.appendChild(b)}})();
 render();
 </script></body></html>
